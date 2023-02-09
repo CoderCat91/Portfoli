@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Nanum+Myeongjo:wght@800&display=swap');
+
+@import "compass/css3";
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Libre Baskerville', serif;
+    background-color: black;
+}
+
+* {
+    box-sizing: border-box;
+  }
+
+header {
+    background-color: white;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    margin: 0 auto;
+    z-index: 999;
+}
+
+nav {
+   
+    position: relative;
+}
+
+nav ul {
+    list-style-type: none;
+    text-align: center;
+    margin-top: 20px;
+    
+}
+nav ul li {
+    display: inline;
+    width: 80px;
+    text-align: center;
+    font-weight: bold;
+    margin-right: 20px;
+    font-size: 1.8rem;
+    justify-content: center;
+}
+
+nav li a {
+    display: inline-block;
+}
+
+nav ul li:hover {
+    color: purple;
+    cursor: pointer;
+    text-decoration: underline;
+
+}
+
+
+
+.hero{
+    width:100%;
+    position: relative;
+    
+  }
+
+  .video-container {
+    width: 100%;
+	height: 100vh;
+    position: relative;
+   
+  }
+
+  .video-container::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background-image: linear-gradient(180deg, rgba(255,255,255,1) 15%, rgba(255,255,255,0.9) 20%, rgba(255,255,255,0) 30%);
+  }
+  
+  video {
+    object-fit: cover; 
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+  }
+  
+  .main-text {
+    position: relative;
+    top: 0%;
+    left: 0%;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+  }
+
+
+h1 {  
+        color: white;
+        position: relative;
+        top: 0%;
+        left: 1%;
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        letter-spacing: 10px;
+        font-family: 'Libre Baskerville', serif;
+        text-shadow: 2px 2px 8px #000;
+        padding-top: 20px;
+      }
+
+h3 {
+    color: white;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    font-family: 'Libre Baskerville', serif;
+    text-shadow: 2px 2px 8px #000;
+    padding-top: 5px;
+}
+
+.social ul {
+    display: flex;
+    width: 100%;
+    padding-left: 10px;
+    list-style-type: none;
+}
+.social li a {
+    display: inline-block;
+    justify-content: space-evenly;
+    margin-right: 10px;
+    font-size: 2rem;
+    color: white;
+}
+
+#portfolio {
+    height: 100vh;
+    width: 100%;
+}
+
+#portfolio h1 {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.flex-container {
+        width: 90%;
+        margin: auto;
+        margin-top: 80px;
+        background-color: purple;
+    
+        @media (min-width: 40em) {
+            width: 40em;
+        }
+    
+        @media (min-width: 80em) {
+            width: 80em;
+        }
+    }
+
+
+
+    .gallery {
+        display: flex;
+        flex-flow: row wrap;
+        align-content: flex-start;
+        align-items: stretch;
+        width: 100%;
+        margin: auto;
+        background-color: red;
+    }
+    
+        .galleryItem {
+            flex: 1 1 auto;
+            margin: 0.3em;
+            border: 1px solid black;
+            position: relative;
+            width: 12em;
+            height: 13em;
+            overflow: hidden;
+            
+    
+            @media (min-width: 40em) {
+                width: 10em;
+                height: 10em;
+            }
+    
+
+            @media (min-width: 80em) {
+                width: 17em;
+                height: 17em;
+            }
+        }
+        
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: .2s;
+            position: relative;
+        }
+        img:hover {
+            transform: scale(1.2);
+        }
+
+    
+        figcaption {
+            background-color: rgba(#000 ,.9);
+            color: #fff;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1em;
+        }
+    
+
+#portfolio h1 {
+    position: relative;
+    text-align: center;
+    top: 10%;
+    text-transform: uppercase;
+    font-family: 'Libre Baskerville', serif;
+}
