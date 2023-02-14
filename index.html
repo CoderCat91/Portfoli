@@ -9,28 +9,24 @@
 <script type="text/javascript" src="./script.js"></script>
 </head>
 <body>
-<header>
-    <nav>
-        <ul>
-            <li>
-                <a href="#">Contact</a>
-            </li>
-            <li>
-                <a href="#portfolio">Portfolio</a>
-            </li>
-            <li>
-                Skills
-            </li>
-            <li>
-                About
-            </li>
-        </ul>
-    </nav>
+    <header>
+        <nav>
+            <div class="menu-button" onclick="menuAnimation(this)">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+          </div>
+          <div class="sidebar" id="slideNav">
+            <div class="nav-section" id="sideBarText">
+              <div class="item"><a href="#portfolio">Portfolio</a></div>
+              <div class="item"><a href="#">About</a></div>
+              <div class="item"><a href="#">Contact</a></div>
+            </div>
+        </nav>
 </header>
-<main>
     <section class="hero">
         <section class="video-container">
-          <video src="video.mp4" type="video/mp4" autoplay loop muted preload="auto"></video>
+          <video id="video" src="./video.mp4" type="video/mp4" autoplay loop muted preload="auto"></video>
           <div class="main-text">
             <h1>Chelsey Duffin</h1>
             <h3>Web Developer</h3>
@@ -53,17 +49,22 @@
                     <li><i class="fa-brands fa-git-alt"></i></li>
                 </ul>
             </div>
+            <div class="container">
+                <a data-scroll href="#full">
+                  <div class="arrow"></div>
+                </a>
+              </div>
+              <div id="full"></div>
           </div>
+
         </section>
         </section>
         <div id ="portfolio">
-            <div class ="star"></div>
             <h1>Portfolio</h1>
-            <h2>Logo's represent the coding languages used in each project</h2>
             <div class="flex-container">
                         <div class="gallery">
                             <figure class="galleryItem">
-                                <a href="#"><img src="./bulldog.jpg" alt="Bulldog"></a>
+                                <a href="https://codercat91.github.io/BulldogMeets/"><img src="./bulldog.jpg" alt="Bulldog"></a>
                                 <figcaption>
                                     <h3>Bulldog Meets</h3>
                                     <ul>
@@ -74,7 +75,7 @@
                                 </figcaption>
                             </figure>
                             <figure class="galleryItem">
-                                <a href="#"><img src="./Kitten.jpg" alt="Bulldog"></a>
+                                <a href="https://codercat91.github.io/KittyFriends/"><img src="./Kitten.jpg" alt="Bulldog"></a>
                                 <figcaption>
                                     <h3>Kittie Friends</h3>
                                     <ul>
@@ -86,7 +87,7 @@
                                 </figcaption>
                             </figure>
                             <figure class="galleryItem">
-                                <a href="#"><img src="./backgroundgen.jpg" alt="Bulldog"></a>
+                                <a href="https://codercat91.github.io/BackgroundGenerator/"><img src="./backgroundgen.jpg" alt="Bulldog"></a>
                                 <figcaption>
                                     <h3>Generator</h3>
                                     <ul>
@@ -114,12 +115,26 @@
                 <h1>
                     Contact me
                 </h1>
-                <form>
-
-                </form>
+                <div class="form-wrapper">
+                    <form action="/" method="POST" class="decor" name="form1" onsubmit="return sendMail(this)">
+                        <div class="form-left-decoration"></div>
+                        <div class="form-right-decoration"></div>
+                        <div class="circle"></div>
+                        <div class="form-inner">
+                          <h1>Contact form</h1>
+                          <input type="text" placeholder="Full Name" id="name" name="name" minlength="2" maxlength="100" required>
+                          <input type="email" id="email" name="email" placeholder="Email address" required>
+                          <textarea placeholder="Message..." rows="5" cols="40"></textarea>
+                          <button type="submit" name="submit" value="Submit" onclick="ValidateEmail(document.form1.email)">Submit</button>
+                </div>
+            </form>
             </div>
+        </div>
+    </div>
         <footer>
-            <copyright>C Duffin 2023</copyright>
+            <copyright>        <p>Copyright &copy; Northern Specimens.<br>
+                Company 2018. All rights reserved.
+             </p></copyright>
         </footer>
 </main>
 </body>

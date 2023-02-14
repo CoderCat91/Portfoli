@@ -20,54 +20,152 @@ html, body {
     text-transform: uppercase;
     letter-spacing: 10px;
     font-size: 2.5rem;
-    font-family: 'Libre Baskerville', serif;
   }
 
-header {
-    background-color: white;
-    top: 0;
-    width: 100%;
-    height: 60px;
-    position: fixed;
-    margin: 0 auto;
-    z-index: 999;
+  @media only screen and (max-width: 480px) {
+    h1 {
+        font-size: 1.4rem;
+    }
+  }
+
+
+/* The side navigation menu */
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  transition: 0.5s;
 }
 
-nav {
-   
-    position: relative;
+.sidebar:before {
+  content: "";
+  position: absolute;
+  background: inherit;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+  filter: blur(10px);
+  margin: -20px;
+}
+#sideBarText {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 30px;
+  height: 100vh;
 }
 
-nav ul {
-    list-style-type: none;
-    text-align: center;
-    margin-top: 20px;
-    
+#sideBarText:first-child {
+  margin-top: 50px;
 }
-nav ul li {
-    display: inline;
-    width: 80px;
-    text-align: center;
-    font-weight: bold;
-    margin-right: 20px;
-    font-size: 1.8rem;
-    justify-content: center;
-    border-bottom: solid 1px black;
+.nav-section a {
+  transition: 0s;
+  opacity: 0;
 }
 
-nav li a {
-    display: inline-block;
-    color: black;
-    text-decoration: none;
+.textFadeIn a {
+  opacity: 100;
+  transition: 1s;
 }
 
-nav ul li a:hover {
-    color: purple;
-    cursor: pointer;
+.sidebar ul {
+  color: white;
+  list-style-type: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  opacity: 0;
 }
 
+.iconFadeIn ul {
+  opacity: 100;
+  transition: 1s;
+}
 
+.nav-section2 li {
+  font-size: 36px;
+  margin-right: 12px;
+  margin-left: 12px;
+  cursor: pointer;
+}
 
+.navSlide {
+  animation: slide 0.2s linear forwards;
+}
+
+.nav-section {
+  margin: 0 auto;
+  width: 400px;
+}
+
+@keyframes slide {
+  100% {
+    width: 20vw;
+  }
+}
+
+.item {
+  color: white;
+  font-size: 2rem;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 100px;
+  text-align: center;
+  text-shadow: 2px 2px 8px #000;
+  text-transform: uppercase;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  transition: 0.4s;
+}
+
+a:hover {
+  text-decoration: underline;
+  transition: 0.4s;
+}
+
+.menu-button {
+  top: 2%;
+  left: 1%;
+  margin-left: 20px;
+  margin-top: 5px;
+  cursor: pointer;
+  position: absolute;
+  z-index: 999;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: white;
+  margin: 6px 0;
+  transition: 0.3s;
+}
+
+.change .bar1 {
+  transform: rotate(-45deg) translate(-9px, 6px);
+  background-color: white;
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  transform: rotate(45deg) translate(-8px, -8px);
+  background-color: white;
+}
+
+/*hero video and main text section*/
 .hero{
     width:100%;
     position: relative;
@@ -81,20 +179,10 @@ nav ul li a:hover {
    
   }
 
-  .video-container::after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    content: '';
-    background-image: linear-gradient(180deg, rgba(255,255,255,1) 10%, rgba(255,255,255,0.3) 15%, rgba(255,255,255,0) 20%), linear-gradient(0deg, rgba(255,255,255,1) 10%, rgba(255,255,255,0.3) 15%, rgba(255, 255, 255, 0) 20%);
-}
-  
-  
+
   video {
     object-fit: cover; 
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100vh;
     top: 0;
@@ -123,7 +211,11 @@ nav ul li a:hover {
         padding-top: 20px;
       }
 
-
+      @media only screen and (max-width: 480px) {
+        .main-text h1 {
+            font-size: 1rem;
+        }
+      }
 .main-text h3 {
     color: white;
     font-size: 1.5rem;
@@ -132,6 +224,12 @@ nav ul li a:hover {
     font-family: 'Libre Baskerville', serif;
     text-shadow: 2px 2px 8px #000;
     padding-top: 5px;
+}
+
+@media only screen and (max-width: 480px) { 
+    .main-text h3 {
+    font-size: 0.8rem;
+}
 }
 
 .social ul {
@@ -149,6 +247,11 @@ nav ul li a:hover {
     color: white;
 }
 
+@media only screen and (max-width: 480px) {
+    .social li a {
+        font-size: 1rem;
+    }
+}
 .skills ul {
     display: flex;
     width: 100%;
@@ -162,39 +265,55 @@ nav ul li a:hover {
     margin-right: 30px;
     font-size: 2.5rem;
     color: white;
-
+}
+@media only screen and (max-width: 480px) {
+    .skills li {
+        font-size: 1rem;
+    }
 }
 
+
+.arrow {
+  box-sizing: border-box;
+  height: 5vw;
+  width: 5vw;
+  border-style: solid;
+  border-color: white;
+  border-width: 0px 1px 1px 0px;
+  transform: rotate(45deg);
+  transition: border-width 150ms ease-in-out;
+  margin-top: 100px;
+}
+
+.arrow:hover {
+  border-bottom-width: 4px;
+  border-right-width: 4px;
+}
+
+.container {
+  align-items: center;
+  justify-content: center;
+}
+
+#full {
+  background-color: #000;
+}
 /*Portfolio content, containing all portfolio properties*/
 #portfolio {
-    height: 90vh;
+    height: 100vh;
     width: 100%;
-    background-image: url("./night-sky-stars-scenery-landscape-21-4K.jpg");
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: relative;
 }
 
-#portfolio::after {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    content: '';
-    background-image: linear-gradient(180deg, rgba(255,255,255,1) 10%, rgba(255,255,255,0.3) 15%, rgba(255,255,255,0) 20%), linear-gradient(0deg, rgba(255,255,255,1) 10%, rgba(255,255,255,0.3) 15%, rgba(255, 255, 255, 0) 20%);
-  }
 
 #portfolio h1 {
     max-width: 80%;
-    margin: 0 auto;
+    margin: auto;
+    height: 100px;
         text-align: center;
         top: 1%;
-        z-index: 10;
-        color: black;
-        text-shadow: 2px 2px 8px #fff;
+        color: white;
         z-index: 899;
+        margin-top: 60px;
     }
 
     #portfolio h2 {
@@ -202,6 +321,12 @@ nav ul li a:hover {
         color: white;
         margin-top: 80px;
         font-size: 1.5em;
+    }
+
+    @media only screen and (max-width: 480px) {
+        #portfolio h2 {
+            font-size: 0.5rem;
+        }
     }
 
 .flex-container {
@@ -219,7 +344,7 @@ nav ul li a:hover {
         }
     }
 
-
+  
 
     .gallery {
         display: flex;
@@ -227,7 +352,14 @@ nav ul li a:hover {
         align-content: flex-start;
         align-items: stretch;
         width: 100%;
-        margin: auto;
+        margin: 0 auto;
+        margin-top: 100px;
+    }
+
+    @media only screen and (max-width: 480px) {
+        .gallery {
+            flex-direction: column;
+        }
     }
     
         .galleryItem {
@@ -240,7 +372,7 @@ nav ul li a:hover {
             height: 20em;
             z-index: 899;
             justify-content: center;
-            background-color: red;
+          
     
             @media (min-width: 40em) {
                 width: 10em;
@@ -253,8 +385,6 @@ nav ul li a:hover {
                 height: 17em;
             }
         }
-
-
         
         a img {
             display: block;
@@ -267,7 +397,7 @@ nav ul li a:hover {
             height: 100%;
             object-fit: cover;
             transition: .2s;
-            filter: brightness(50%);
+            filter: brightness(20%);
             z-index: 998;
         }
         img:hover {
@@ -290,9 +420,13 @@ nav ul li a:hover {
             text-align: center;
             text-transform: uppercase;
             letter-spacing: 5px;
-            font-size: 1em;
+            font-size: 1rem;
         }
-
+        @media only screen and (max-width: 480px) {
+            figcaption h3 {
+                font-size: 0.8rem;
+            }
+        }
     
         figcaption > ul {
             display: flex;
@@ -309,18 +443,180 @@ nav ul li a:hover {
             color: white;
         
         }
-
+        @media only screen and (max-width: 480px) {
+            figcaption li  {
+                font-size: 1rem;
+            }
+        }
 
         .contact {
             width: 100%;
-            height: 90vh;
-            background-color: black;
-        }
+            height: 80vh;
+            background-image: URL("");
+              }
 
-        .contact h1 {
-            text-align: center;
-            color: white;
-        }
+
+              @media only screen and (max-width: 480px) {
+                .contact {
+                    height: 70vh;
+                }
+            }
+              .contact h1 {
+                text-align: center;
+                color: White;
+                z-index: 40;
+            }
+
+            .form-wrapper {
+                width: 80%;
+                max-width: 1200px;
+                margin: 0 auto;
+                margin-top: 50px;
+                display: flex;
+              }
+   
+              input, textarea { 
+              outline: none;
+              }
+      
+              form {
+              position: relative;
+              width: 80%;
+              border-radius: 30px;
+              background: #fff;
+              margin: 0 auto;
+          
+              }
+              
+              .form-left-decoration,
+              .form-right-decoration {
+              content: "";
+              position: absolute;
+              width: 50px;
+              height: 20px;
+              border-radius: 20px;
+              background: purple;
+              }
+              .form-left-decoration {
+              bottom: 60px;
+              left: -30px;
+              }
+              .form-right-decoration {
+              top: 60px;
+              right: -30px;
+              }
+              .form-left-decoration:before,
+              .form-left-decoration:after,
+              .form-right-decoration:before,
+              .form-right-decoration:after {
+              content: "";
+              position: absolute;
+              width: 50px;
+              height: 20px;
+              border-radius: 30px;
+              background: #fff;
+              }
+              .form-left-decoration:before {
+              top: -20px;
+              }
+              .form-left-decoration:after {
+              top: 20px;
+              left: 10px;
+              }
+              .form-right-decoration:before {
+              top: -20px;
+              right: 0;
+              }
+              .form-right-decoration:after {
+              top: 20px;
+              right: 10px;
+              }
+              .circle {
+              position: absolute;
+              bottom: 80px;
+              left: -55px;
+              width: 20px;
+              height: 20px;
+              border-radius: 50%;
+              background: #fff;
+              }
+              .form-inner {
+              padding: 40px;
+              }
+
+              .form-inner h1 {
+                color: black;
+                font-family: 'Libre Baskerville', serif;
+              }
+
+              @media only screen and (max-width: 480px) {
+                .form-inner h1 {
+                    font-size: 1rem;
+                    letter-spacing: 5px;
+                    margin-bottom: 20px;
+                }
+            }
+              .form-inner label {
+                font-weight: 300;
+                color: black;
+                font-family: 'Libre Baskerville', serif;
+                text-align: center;
+                text-transform: uppercase;
+              }
+
+
+
+              .form-inner input,
+              .form-inner textarea {
+              display: block;
+              width: 100%;
+              padding: 15px;
+              margin-bottom: 10px;
+              border: none;
+              border-radius: 20px;
+              background: lavender;
+              margin-top: 10px;
+              }
+              .form-inner textarea {
+              resize: none;
+              }
+
+
+              .form-inner button {
+              width: 100%;
+              padding: 10px;
+              margin-top: 20px;
+              border-radius: 20px;
+              border: none;
+              font-size: 1rem;
+              font-weight: 400;
+              color: #fff;
+              }
+              .form-inner button:hover {
+              background: black;
+              } 
+              
+              
+            
+              @media only screen and (max-width: 480px) {
+                form {
+                    width: 80%;
+                }
+            }     
+    
+
+
+    footer {
+        background-color: white;
+        color: black;
+        font-weight: 300;
+        text-transform: uppercase;
+
+    }
+
+    
+        
+        
 
         /*meteors*/
 
@@ -918,3 +1214,4 @@ nav ul li a:hover {
               opacity: 0;
             }
         }
+    
