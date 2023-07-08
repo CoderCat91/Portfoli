@@ -446,7 +446,7 @@ a:hover {
             }
         }
 
-        .contact {
+        #contact {
             width: 100%;
             height: 80vh;
             background-image: URL("");
@@ -454,13 +454,13 @@ a:hover {
 
 
               @media only screen and (max-width: 480px) {
-                .contact {
+                #contact {
                     height: 70vh;
                 }
             }
-              .contact h1 {
+              #contact h1 {
                 text-align: center;
-                color: White;
+                color: white;
                 z-index: 40;
                 text-shadow: 2px 2px 8px #000;
             }
